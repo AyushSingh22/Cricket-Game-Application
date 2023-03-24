@@ -15,6 +15,8 @@ public class BowlerService {
 
     @Autowired
     private BowlerRepository bowlerRepository;
+    @Autowired
+    private MatchService matchService;
 
     public Bowler addBowler(Bowler bowler){
         bowler.setBowlerId(UUID.randomUUID().toString().split("-")[0]);
