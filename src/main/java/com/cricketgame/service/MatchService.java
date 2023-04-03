@@ -56,19 +56,15 @@ public class MatchService{
 //        System.out.println("The bowling team is : "+teamTwo);
         while((oversTillNow < totalOvers) && (totalScore < target) && (totalWickets<players-1)){
             runsOnThisBall=(int)(Math.random()*100)%11;
-            // get the next bowler from the bowlersList
             if(bowlersList.containsKey(bowlers+1))
             {
                 bowler = bowlersList.get(bowlers+1);
             }
-            // create a new bowler and add to the bowlersList
-
             else {
                 bowler=new Bowler("00","Bowler"+(bowlers+1),teamTwo,0,0,0,0,0);
                 bowlerController.createBowler(bowler);
                 bowlersList.put(bowlers+1,bowler);
             }
-            // Condition for No Ball
 
             if(runsOnThisBall==10) //condition for No Ball
             {
@@ -79,8 +75,6 @@ public class MatchService{
 //                System.out.println(oversTillNow+"."+ballsDoneInThisOver+" No Ball, The next ball is a FreeHit.");
                 continue;
             }
-            // Condition for Wide Ball
-
             else if(runsOnThisBall==7 || runsOnThisBall==9) //Condition for Wide Ball
             {
                 totalScore++;
@@ -89,7 +83,6 @@ public class MatchService{
 //                System.out.println(oversTillNow+"."+ballsDoneInThisOver+" It's a Wide Ball.");
                 continue;
             }
-            // Condition for Wicket
             else if((runsOnThisBall==5 || runsOnThisBall==8) && !freeHit){
                 //wicketsInThisOver++;
                 totalWickets++;
